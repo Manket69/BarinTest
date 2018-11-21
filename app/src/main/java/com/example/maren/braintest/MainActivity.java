@@ -108,7 +108,7 @@ public class MainActivity extends AppCompatActivity {
         stopCount++;
         tickCount++;
         if(stopCount < 7 ) {
-            scoreTextView.setText(Integer.toString(quizCount));
+            scoreTextView.setText(rightAnswerCount+"/"+Integer.toString(quizCount));
         }
 
 
@@ -118,8 +118,11 @@ public class MainActivity extends AppCompatActivity {
             public void onTick(long millisUntilFinished) {
                 if(isRunning){
                     cancel();
+
                     isRunning= false ;
+
                 }else{
+
                     timerTextView.setText("0:" + millisUntilFinished / 100);
                 }
 
@@ -129,9 +132,9 @@ public class MainActivity extends AppCompatActivity {
 
             public void onFinish() {
                 tickCount++;
-            quizCount++;
+                quizCount++;
 
-                if(tickCount == 6 ){
+                if(tickCount == 7 ){
 
 
                     cancel();
@@ -261,6 +264,7 @@ public class MainActivity extends AppCompatActivity {
         }else{
             quizCount++;
             isRunning=true;
+
             showNextQuiz();
         }
 
@@ -270,6 +274,8 @@ public class MainActivity extends AppCompatActivity {
         Log.d("Wybor ", "To "+textPressed);
 
     }
+
+
 
     public void Reset(View view) {
       //  int gameCount = 1;
