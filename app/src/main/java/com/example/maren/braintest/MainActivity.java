@@ -116,29 +116,22 @@ public class MainActivity extends AppCompatActivity {
 
 
             public void onTick(long millisUntilFinished) {
+                if(isRunning){
+                    cancel();
+                    isRunning= false ;
+                }else{
+                    timerTextView.setText("0:" + millisUntilFinished / 100);
+                }
 
             if(stopCount == 7){
                 cancel();
-            }
-
-                if(isRunning){
-
-                cancel();
-
-                isRunning= false ;
-
-            }else {
-
-
-                timerTextView.setText("0:" + millisUntilFinished / 100);
-            }
-            }
+            } }
 
             public void onFinish() {
                 tickCount++;
             quizCount++;
 
-                if(tickCount == 7 ){
+                if(tickCount == 6 ){
 
 
                     cancel();
@@ -153,7 +146,8 @@ public class MainActivity extends AppCompatActivity {
                     //winnerImageView.setVisibility(View.VISIBLE);
                     taskTextView.setVisibility(View.INVISIBLE);
                     scoreTextView.setText(rightAnswerCount+"/"+QUIZ_COUNT);
-                    
+                    answerTextView.setText("Time Up. Test Finished");
+                    lose.start();
                 }
                 else{
                     if(tickCount <= 2) {
