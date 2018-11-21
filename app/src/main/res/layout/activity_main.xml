@@ -8,59 +8,56 @@
 
     <TextView
         android:id="@+id/timerTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="80dp"
+        android:layout_height="50dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
         android:background="#fdfb30"
-        android:text="30s"
+        android:text="0:00"
         android:textSize="36sp"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.017" />
+        app:layout_constraintVertical_bias="0.062" />
 
     <TextView
         android:id="@+id/taskTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:text="11 + 13"
         android:textColor="#000000"
         android:textSize="30sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/scoreTextView"
-        app:layout_constraintHorizontal_bias="0.489"
-        app:layout_constraintStart_toEndOf="@+id/timerTextView"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.035" />
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.518"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/scoreTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="69dp"
+        android:layout_height="50dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="8dp"
         android:background="#fd870b"
         android:text="0/0"
+        android:textAlignment="center"
         android:textSize="36sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/timerTextView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.016" />
+        app:layout_constraintTop_toTopOf="@+id/timerTextView" />
 
     <TextView
         android:id="@+id/caseTextView1"
-        android:layout_width="145dp"
+        android:layout_width="144dp"
         android:layout_height="119dp"
-        android:layout_marginStart="44dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
         android:background="#454ffe"
         android:onClick="ChooseCase"
         android:text="33"
@@ -68,64 +65,71 @@
         android:textColor="#000000"
         android:textSize="80sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.369" />
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/caseTextView3"
+        app:layout_constraintEnd_toEndOf="@+id/caseTextView3"
+        app:layout_constraintEnd_toStartOf="@+id/caseTextView2"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/caseTextView3"
+        app:layout_constraintTop_toBottomOf="@+id/button"
+        app:layout_constraintVertical_chainStyle="packed" />
 
     <TextView
         android:id="@+id/caseTextView2"
         android:layout_width="144dp"
         android:layout_height="119dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="52dp"
-        android:layout_marginBottom="8dp"
         android:background="#15fd48"
+        android:onClick="ChooseCase"
         android:text="24"
         android:textAlignment="center"
         android:textColor="#000000"
         android:textSize="80sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.369" />
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/caseTextView4"
+        app:layout_constraintEnd_toEndOf="@+id/caseTextView4"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/caseTextView1"
+        app:layout_constraintStart_toStartOf="@+id/caseTextView4"
+        app:layout_constraintTop_toBottomOf="@+id/button"
+        app:layout_constraintVertical_chainStyle="packed" />
 
     <TextView
         android:id="@+id/caseTextView3"
         android:layout_width="144dp"
         android:layout_height="119dp"
-        android:layout_marginStart="44dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
         android:background="#fd0be4"
+        android:onClick="ChooseCase"
         android:text="19"
         android:textAlignment="center"
         android:textColor="#000000"
         android:textSize="80sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/answerTextView"
+        app:layout_constraintEnd_toStartOf="@+id/caseTextView4"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.686" />
+        app:layout_constraintTop_toBottomOf="@+id/caseTextView1" />
 
     <TextView
         android:id="@+id/caseTextView4"
         android:layout_width="144dp"
         android:layout_height="119dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="52dp"
-        android:layout_marginBottom="8dp"
         android:background="#10fdfe"
+        android:onClick="ChooseCase"
         android:text="39"
         android:textAlignment="center"
         android:textColor="#000000"
         android:textSize="80sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/answerTextView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.686" />
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/caseTextView3"
+        app:layout_constraintTop_toBottomOf="@+id/caseTextView2" />
 
     <TextView
         android:id="@+id/answerTextView"
@@ -137,10 +141,60 @@
         android:layout_marginBottom="8dp"
         android:text="Wrong !"
         android:textSize="36sp"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/taskTextView"
-        app:layout_constraintVertical_bias="0.921" />
+        app:layout_constraintVertical_bias="0.93" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:onClick="Reset"
+        android:text="Button"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.518"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.17" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="0dp"
+        android:layout_height="473dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/gopicv2"
+        android:onClick="Start"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/winnerimageView"
+        android:layout_width="336dp"
+        android:layout_height="469dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.692"
+        app:srcCompat="@drawable/winnerv2" />
 
 </android.support.constraint.ConstraintLayout>
