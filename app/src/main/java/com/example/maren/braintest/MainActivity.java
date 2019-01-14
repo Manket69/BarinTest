@@ -1,6 +1,7 @@
 package com.example.maren.braintest;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.media.MediaPlayer;
 import android.os.CountDownTimer;
 import android.provider.MediaStore;
@@ -28,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
     int tickCount = 1 ;
     int stopCount = 1;
     ArrayList<ArrayList<String>> quizArray = new ArrayList<>();
-
+    CountDownTimer timer;
     String quizData[][] = {
             // {"Działanie" , " Poprwana Odpowiedz", "Odpowiedz 1 " , Odpowiedz2" , "Odpowiedz 3 " }
             {"2 + 5","7","22","28","2"},
@@ -102,23 +103,36 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    public int getRandomColor(){
+        Random rnd = new Random();
+        return Color.argb(255, rnd.nextInt(256), rnd.nextInt(256), rnd.nextInt(256));
+    }
+
 
     public void showNextQuiz(){
 
+// randomowe colory ODPOWIEDZI
+        caseTextView1.setBackgroundColor(getRandomColor());
+        caseTextView2.setBackgroundColor(getRandomColor());
+        caseTextView3.setBackgroundColor(getRandomColor());
+        caseTextView4.setBackgroundColor(getRandomColor());
+
+
+
         stopCount++;
-        tickCount++;
+
         if(stopCount < 7 ) {
             scoreTextView.setText(rightAnswerCount+"/"+Integer.toString(quizCount));
         }
 
 
-        new CountDownTimer(6000, 100) {
+        timer = new CountDownTimer(6000, 100) {
 
 
             public void onTick(long millisUntilFinished) {
                 if(isRunning){
                     cancel();
-
+                    start();
                     isRunning= false ;
 
                 }else{
@@ -134,7 +148,9 @@ public class MainActivity extends AppCompatActivity {
                 tickCount++;
                 quizCount++;
 
-                if(tickCount == 7 ){
+
+
+                if(tickCount == 6 ){
 
 
                     cancel();
@@ -147,9 +163,14 @@ public class MainActivity extends AppCompatActivity {
                     caseTextView3.setVisibility(View.INVISIBLE);
                     caseTextView4.setVisibility(View.INVISIBLE);
                     //winnerImageView.setVisibility(View.VISIBLE);
+                    taskTextView.animate().alpha(0.0f);
+
                     taskTextView.setVisibility(View.INVISIBLE);
                     scoreTextView.setText(rightAnswerCount+"/"+QUIZ_COUNT);
                     answerTextView.setText("Time Up. Test Finished");
+                    timerTextView.animate().alpha(0.0f);
+                    scoreTextView.animate().xBy(-400);
+                    scoreTextView.animate().scaleXBy(1).scaleYBy(1);
                     lose.start();
                 }
                 else{
@@ -163,7 +184,7 @@ public class MainActivity extends AppCompatActivity {
                         answerTextView.setText("Press the Button ??");
                     }
 
-                    tickCount--;
+
                    showNextQuiz();
               }
             }
@@ -212,9 +233,9 @@ public class MainActivity extends AppCompatActivity {
        TextView answerText = findViewById(view.getId());
        textPressed = answerText.getText().toString();
 
+        timer.cancel();
 
-
-
+        tickCount++;
 
 
 
@@ -242,21 +263,33 @@ public class MainActivity extends AppCompatActivity {
             caseTextView3.setVisibility(View.INVISIBLE);
             caseTextView4.setVisibility(View.INVISIBLE);
             taskTextView.setVisibility(View.INVISIBLE);
+            taskTextView.animate().alpha(0.0f);
+            timerTextView.animate().alpha(0.0f);
 
             scoreTextView.setText(rightAnswerCount+"/"+quizCount);
 
             if(rightAnswerCount <= 2) {
                 answerTextView.setText("Keep Trying!!");
+                scoreTextView.animate().xBy(-400);
+                scoreTextView.animate().scaleXBy(1).scaleYBy(1);
                 lose.start();
             }else if (rightAnswerCount <= 3 ) {
                 answerTextView.setText("Work Harder !!");
+                scoreTextView.animate().xBy(-400);
+                scoreTextView.animate().scaleXBy(1).scaleYBy(1);
                 lose.start();
             }else if (rightAnswerCount <=4){
                 answerTextView.setText("You Are Close");
+                scoreTextView.animate().xBy(-400);
+                scoreTextView.animate().scaleXBy(1).scaleYBy(1);
                 lose.start();
             }else if (rightAnswerCount == 5 ){
                 answerTextView.setText("You Finished The Test !");
+                scoreTextView.animate().xBy(-400);
+                scoreTextView.animate().scaleXBy(1).scaleYBy(1);
+
                 winnerImageView.setVisibility(View.VISIBLE);
+                winnerImageView.animate().rotationXBy(10);
                 win.start();
             }
 
@@ -278,15 +311,15 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void Reset(View view) {
-      //  int gameCount = 1;
+      int gameCount = 1;
 
 
     button.setVisibility(View.INVISIBLE);
 
-    Intent intent = new Intent(this,MainActivity.class);
-    //intent.putExtra("gameScore",gameCount);
-        // gameCount++;
-       // gameTextView.setText("Game Number : "+Integer.toString(gameCount));
+    Intent intent = new Intent(this,Main2Activity.class);
+    intent.putExtra("gameScore",gameCount);
+
+
     startActivity(intent);
 
     }

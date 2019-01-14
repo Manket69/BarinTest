@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
-
+    android:animateLayoutChanges="true"
     <TextView
         android:id="@+id/timerTextView"
         android:layout_width="80dp"
@@ -16,6 +16,7 @@
         android:background="#fdfb30"
         android:text="0:00"
         android:textSize="36sp"
+        android:animateLayoutChanges="true"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -27,16 +28,20 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
+        android:animateLayoutChanges="true"
         android:text="11 + 13"
         android:textColor="#000000"
         android:textSize="30sp"
         android:visibility="invisible"
-        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.518"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.027" />
 
     <TextView
         android:id="@+id/scoreTextView"
@@ -49,6 +54,7 @@
         android:text="0/0"
         android:textAlignment="center"
         android:textSize="36sp"
+        android:animateLayoutChanges="true"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="@+id/timerTextView"
         app:layout_constraintEnd_toEndOf="parent"
@@ -142,6 +148,7 @@
         android:text="Wrong !"
         android:textSize="36sp"
         android:visibility="invisible"
+        android:animateLayoutChanges="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -163,8 +170,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.518"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.17" />
+        app:layout_constraintTop_toBottomOf="@+id/taskTextView"
+        app:layout_constraintVertical_bias="0.078" />
 
     <Button
         android:id="@+id/button2"
